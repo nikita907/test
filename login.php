@@ -36,6 +36,7 @@ if ($_POST['a_login']!=""|| $_POST['a_password']!="") {
             }
             else {
                 ?><label class="errormessage">Неверный пароль</label>
+                <a href="authorisation.html">Исправить</a>
                 <?php
                 exit();
                 break;
@@ -44,10 +45,13 @@ if ($_POST['a_login']!=""|| $_POST['a_password']!="") {
     }
     if($_SESSION['auth']==False){
         ?><label class="errormessage">Пользователя с таким логином не существует</label>
+        <a href="authorisation.html">Исправить</a>
         <?php
     }
 }
 else{
-?><label class="errormessage">Не оставляйте поля пустыми</label><?php
+?><label class="errormessage">Не оставляйте поля пустыми</label>
+<a href="authorisation.html">Исправить</a>
+<?php
 }
 ?>
