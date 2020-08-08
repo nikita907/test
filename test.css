@@ -1,0 +1,9 @@
+.errormessage{
+    color: red;
+}
+body{
+    background-color:goldenrod;
+}
+#register{
+    margin-top: 50px;
+}

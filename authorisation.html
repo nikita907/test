@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <link href="test.css" rel="stylesheet" type="text/css">
+    <noscript><meta http-equiv="refresh" content="0;url=nojs.html"></noscript>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        function AjaxFormRequest(result_id,form_id,url) {
+            jQuery.ajax({
+                url:     "login.php", //Адрес подгружаемой страницы
+                type:     "POST", //Тип запроса
+                dataType: "html", //Тип данных
+                data: jQuery("#"+form_id).serialize(),
+                success: function(response) { //Если все нормально
+                    document.getElementById(result_id).innerHTML = response;
+                },
+                error: function(response) { //Если ошибка
+                    document.getElementById(result_id).innerHTML = "Ошибка при отправке формы";
+                }
+            });
+        }
+
+    </script>
+</head>
+<body>
+<div id="result_div_id">
+<label>Still dont have account?</label>
+<a href="registration.php">Register</a>
+<form id="a_form" method="post" action="">
+    <label>Please,enter your login</label><br>
+    <input type="text" name="a_login" placeholder="Please,enter your login"><br>
+    <label>"Please,enter your password</label><br>
+    <input type="text" name="a_password" placeholder="Please,enter your password"><br><br>
+    <label>Remember me?</label>
+    <input name="rememberme" type="checkbox" value="1"><br>
+    <input type="button" name="Done" value="Go" onclick="AjaxFormRequest('result_div_id', 'a_form', 'login.php')" />
+</form>
+</div>
+</body>
+</html>
