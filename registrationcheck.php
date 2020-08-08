@@ -30,11 +30,13 @@ if ($_POST['Name'] && $_POST['Password']&& $_POST['ConfirmPassword'] && $_POST['
         foreach ($xml as $child) {
             if ($child->Login == $_POST['Login']) {
                 ?><label class="errormessage">Пользователь с таким логином уже существует</label>
+                <a href="registration.php">Исправить</a>
                 <?php
                 exit();
                 break;
             } else if ($child->Email == $_POST['Email']) {
                 ?><label class="errormessage">Пользователь с таким электронным адресом уже существует</label>
+                <a href="registration.php">Исправить</a>
                 <?php
                 exit();
                 break;
@@ -43,6 +45,7 @@ if ($_POST['Name'] && $_POST['Password']&& $_POST['ConfirmPassword'] && $_POST['
     }
     if ($_POST['Password'] != $_POST['ConfirmPassword']) {
         ?><label class="errormessage">Вы ввели неправильный повторный пароль</label>
+        <a href="registration.php">Исправить</a>
     <?php
         exit();
     }
@@ -90,6 +93,7 @@ if ($_POST['Name'] && $_POST['Password']&& $_POST['ConfirmPassword'] && $_POST['
 }
 else{
     ?><label class="errormessage">Не оставляйте поля пустыми</label>
+    <a href="registration.php">Исправить</a>
     <?php
 }
 ?>
