@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!empty($_SESSION['auth']) || !empty($_COOKIE['login']))
+if (!empty($_COOKIE['login']))
 {
 header("Location:ifauthorisate.php");
 }
